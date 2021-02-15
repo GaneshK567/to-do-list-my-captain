@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<style>
+		div {
+		  background-image: url("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1092571024%2F0x0.jpg%3Ffit%3Dscale");
+		}
+	</style>
+
+</head>
+    <body>
+         <!-- TO DO LIST array -->
+        <script type="text/javascript">
+            let listItem = ['Get up early', 'Get ready'];
+        </script>
+        <script type="text/javascript">
+            function newElement() {
+                let tempItem = document.getElementById('myInput').value;
+                listItem.push(tempItem);
+                displayList(tempItem);
+                document.getElementById('myInput').value = '';
+
+            }
+            function removeAll() {
+                for(let i=0;i < listItem.length; i++){
+                    let temp = document.getElementById('list');
+                    temp.remove();
+                }
+                listItem = [];
+            }
+                
+                
+             
+        </script>
+        
+        <div class="header container">
+	        <h2 style="margin:6px">To Do List</h2>
+	        <input type="text" id="myInput" placeholder="Task name...">
+	        <br>
+	        <button type="button" onclick="newElement()" class="addBtn">Add</button>
+	        <br>
+	        <button type="button" id="clear-list" onclick="removeAll()">Clear Item</button>
+	        <br>
+	        <div id="display">
+
+	            <ul id="myUl">
+	                <script type="text/javascript">
+	                    listItem.forEach(displayList);
+	                    
+	                    function displayList (item) {
+	                        document.getElementById('display').innerHTML += "<li id='list' class='item'>" + item + "</li>"
+	                    }
+	                </script>
+	            </ul>
+	        </div>
+        </div>
+                    
+</body>
+</html>
